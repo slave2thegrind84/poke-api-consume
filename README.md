@@ -4,8 +4,14 @@ poke_api_consume
 # dependencies
 - npm
 
-# install jest:
 
+# clone this repo:
+
+```
+git clone git@github.com:slave2thegrind84/poke-api-consume.git
+```
+
+# install typescript language and jest testing framework:
 
 ```
 npm install -g typescript
@@ -16,13 +22,16 @@ npm install @types/jest --save-dev
 npm install ts-jest --save-dev
 ```
 ## configure
+Note: accept all defaults
 ```
 npm init
 npx tsc --init
 ```
 
 ## run tests
-`jest --forceExit`
+```
+jest --forceExit
+```
 
 ## run script
 `ts-node ./src/pokemon.ts`
