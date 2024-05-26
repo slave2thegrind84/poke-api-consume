@@ -25,6 +25,8 @@ npm install ts-jest --save-dev
 Note: accept all defaults
 ```
 npm init
+```
+```
 npx tsc --init
 ```
 
