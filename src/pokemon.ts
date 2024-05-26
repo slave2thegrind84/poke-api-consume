@@ -19,7 +19,7 @@ export async function getResource<T>(resourceURI:string): Promise<T> {
     await fetch(resourceURI)
     .then(function(response) {
       // headers
-      if (response.status!=200) throw `fetch failed() ${response.status}:${response.statusText}`;
+      if (response.status!=200) throw `fetch ${response.url} failed() ${response.status}:${response.statusText}`;
       return response.json();
     }).then(async function(data) {
       // data    
@@ -49,7 +49,7 @@ async function getResourceList(base_url:string, resource:string): Promise<Array<
     await fetch(nextPage)
     .then(function(response) {
       // headers
-      if (response.status!=200) throw `fetch failed() ${response.status}:${response.statusText}`;
+      if (response.status!=200) throw `fetch ${response.url} failed() ${response.status}:${response.statusText}`;
       return response.json();
     }).then(async function(data) {
       let res: Array<NamedAPIResource> = data.results 
@@ -92,7 +92,7 @@ export async function funTranslate(text:string, language:string): Promise<string
     body: JSON.stringify({ text} )
   }).then(function(response) {
       // get headers
-      if (response.status!=200) throw `fetch failed() ${response.status}:${response.statusText}`;
+      if (response.status!=200) throw `fetch ${response.url} failed() ${response.status}:${response.statusText}`;
       return response.json();
     }).then(async function(data) {
       // get data    
@@ -139,8 +139,6 @@ export async function getSpecies<T>(name:string): Promise<PokemonSpecies>{
     var species:PokemonSpecies = await getResource<PokemonSpecies>(`${base_url}/pokemon-species/${name}`)
     return species
   } catch (error) {
-    console.log(error)
-    console.log("here1")
     throw(error)
   }
   throw new TypeError("undefined");
@@ -194,7 +192,7 @@ async function run() {
   getSpecies("zubat").then(function(s) {
     console.log("Endpoint 1")
     printSpecies(s)
-  })
+  }).catch(error => console.log(error))
 
 
   // call 2
