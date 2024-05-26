@@ -8,7 +8,7 @@ poke_api_consume
 # clone this repo:
 
 ```
-git clone git@github.com:slave2thegrind84/poke-api-consume.git
+git clone https://github.com/slave2thegrind84/poke-api-consume.git
 ```
 
 # install typescript language and jest testing framework:
