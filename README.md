@@ -5,15 +5,20 @@ poke_api_consume
 - npm
 
 # install jest:
+
+
 ```
-npm init
 npm install -g typescript
 npm install -g ts-node
 npm install -g jest
 npm install express@^4.18.2
 npm install @types/jest --save-dev
 npm install ts-jest --save-dev
-npm install @types/jest --save-dev
+```
+## configure
+```
+npm init
+npx tsc --init
 ```
 
 ## run tests
