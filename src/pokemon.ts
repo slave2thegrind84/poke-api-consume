@@ -197,8 +197,8 @@ async function run() {
 
   // call 2
   getSpecies("zubat").then(function(s) {
-    console.log("Endpoint 2")
     applyTranslation(s).then(function(s) {
+      console.log("Endpoint 2")
       printSpecies(s)
     })
   }).catch(error => console.log(error))
