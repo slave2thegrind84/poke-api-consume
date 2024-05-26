@@ -191,28 +191,19 @@ async function run() {
   //allSpecies = await getResourceList(base_url, "pokemon-species")
   
   // Call 1
-  console.log("Endpoint 1")
-  try {
-    var species:PokemonSpecies = await getSpecies("zubat")
-    printSpecies(species)
-  } catch (error) {
-    console.log(error)
-  }
+  getSpecies("zubat").then(function(s) {
+    console.log("Endpoint 1")
+    printSpecies(s)
+  })
+
 
   // call 2
-  console.log("Endpoint 2")
-  try {
-    var species:PokemonSpecies = await getSpecies("zubat")
-    try {
-      species = await applyTranslation(species)
-      printSpecies(species)
-    } catch (error) {
-      console.log(error)
-    }
-    
-  } catch (error) {
-    console.log(error)
-  }
+  getSpecies("zubat").then(function(s) {
+    console.log("Endpoint 2")
+    applyTranslation(s).then(function(s) {
+      printSpecies(s)
+    })
+  }).catch(error => console.log(error))
 
 }
 
